@@ -18,10 +18,12 @@ void bluetoothModuleStartStop(){
     text[bits] = bluetoothModule.read();
     bits++;
   }
-  if( strcmp(text, "Start") == 0 )
+  if( strcmp(text, "Start") == 0 ){
     driving = true;
-  else if( strcmp(text, "Stop") == 0 )
+    bluetoothModule.println("Motor started!");
+  } else if( strcmp(text, "Stop") == 0 ){
     driving = false;
-  else
-    bluetoothModule.println("Default");
+    bluetoothModule.println("Motor stopped!");
+  } else
+    bluetoothModule.println("Something else got received");
 }
