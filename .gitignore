@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+Thumbs.db
+Documentation/Projekt-Steuerung_Autonom-Fahrendes-Auto_PaTa.ods
