@@ -7,12 +7,13 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
   do{ // only checking if we received something from the Bluetooth Module until we start.
-	bluetoothModuleStartStop();
+	  SoftwareSerialStartStop();
   }while(!driving);
+  
   while(driving){
-	motorControl();
-    bluetoothModuleStartStop();
+	  motorControl();
+    SoftwareSerialStartStop();
   }
 }
