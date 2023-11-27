@@ -11,6 +11,6 @@ void loop() {
     do{ /* NOTHING */ }while(!driving);
   while(driving){
       motorControl();
-      softSerialTest();
+      bluetoothModuleStartStop();
   }
 }

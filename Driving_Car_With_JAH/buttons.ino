@@ -24,9 +24,9 @@ inline void buttonSetup(){
 
 void stopButtonISR(){
   driving = false;
-  Serial.println("Pressed STOP Button");
+  bluetoothModule.println("Pressed STOP Button");
 }
 void startButtonISR(){
   driving = true;
-  Serial.println("Pressed START Button");
+  bluetoothModule.println("Pressed START Button");
 }
