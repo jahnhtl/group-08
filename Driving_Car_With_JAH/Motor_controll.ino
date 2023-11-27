@@ -11,7 +11,8 @@
   IN3 > IN4 Auto fährt rückwerts
   
   IN1 und IN2 sind die rechten Räder
-  
+  IN1 < IN2 Auto fährt vorwärts
+  IN1 > IN2 Auto fährt rückwerts  
 */
 
 inline void motorControl(){
@@ -22,4 +23,6 @@ inline void motorControl(){
   
   digitalWrite(IN4, HIGH);
   digitalWrite(IN3, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN1, LOW);
 }
