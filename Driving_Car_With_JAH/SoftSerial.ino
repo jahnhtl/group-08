@@ -22,6 +22,7 @@ void softSerialTest(){
     c = Serial.read();
     SoftSerial.write(c);   
 
+    return;
+  }
   return;
-}
 }

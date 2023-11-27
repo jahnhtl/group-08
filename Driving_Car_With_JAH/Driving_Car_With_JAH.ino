@@ -3,7 +3,7 @@ bool driving = false;
 void setup() {
   // put your setup code here, to run once:
   buttonSetup();
-  Serial.begin(115200);
+  serialSetup();
 }
 
 void loop() {
