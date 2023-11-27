@@ -7,6 +7,7 @@ void setup() {
 }
 
 void loop() {
+  driving = true; //debug
   // put your main code here, to run repeatedly:
     do{ /* NOTHING */ }while(!driving);
   while(driving){

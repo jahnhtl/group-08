@@ -2,8 +2,24 @@
 #define IN2 6
 #define IN3 5
 #define IN4 4
+#define ENA 8
+#define ENB 9
+
+/*
+  IN3 und IN4 sind die linken Räder
+  IN3 < IN4 Auto fährt vorwärts
+  IN3 > IN4 Auto fährt rückwerts
+  
+  IN1 und IN2 sind die rechten Räder
+  
+*/
 
 inline void motorControl(){
-  digitalWrite(IN4, LOW);
-  digitalWrite(IN3, HIGH);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT); 
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  
+  digitalWrite(IN4, HIGH);
+  digitalWrite(IN3, LOW);
 }
