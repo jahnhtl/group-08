@@ -13,7 +13,7 @@ int main(void)
   buttonSetup();
   serialSetup();
   while(true){
-    do{ /* NOTHING */ }while(!driving);
+    do{ /* NOTHING */ SoftSerial.println("D: NOP-Loop"); delay(2000); }while(!driving);
     while(driving){ 
       delay(25);
       motorControl();
