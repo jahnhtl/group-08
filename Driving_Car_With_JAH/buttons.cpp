@@ -18,8 +18,8 @@ void buttonSetup(){
   // define both Pins as inputs
   //interrupts(); // should not be necessary. For safety
   
-  startButtonDDR  &= ~(1 << startButtonPin);
-  startButtonPORT |=  (1 << startButtonPin); // PULLUP
+  startButtonDDR  &= ~(1 << startButtonPin); // Define Pin as Input.
+  startButtonPORT |=  (1 << startButtonPin); // Activate Pullup
   stopButtonDDR   &= ~(1 << stopButtonPin);
   stopButtonPORT  |=  (1 << stopButtonPin); // PULLUP
 

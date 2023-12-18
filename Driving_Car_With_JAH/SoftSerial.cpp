@@ -10,14 +10,14 @@ void serialSetup(){
 //  Serial.begin(BAUDRATE_SERIAL_MONITOR);
 }
 void SoftSerialTest(){
-  SoftSerial.print("Test of text  ");
-  SoftSerial.println("An here should be a end of line at the end");
-  SoftSerial.print("Test of number: ");
-  SoftSerial.println(228922);
-  SoftSerial.print("Test of boolean");
-  SoftSerial.println(true);
-  SoftSerial.print("Test of Float");
-  SoftSerial.println(3.1415926);
+//  SoftSerial.print("Test of text  ");
+//  SoftSerial.println("An here should be a end of line at the end");
+//  SoftSerial.print("Test of number: ");
+//  SoftSerial.println(228922);
+//  SoftSerial.print("Test of boolean");
+//  SoftSerial.println(true);
+//  SoftSerial.print("Test of Float");
+//  SoftSerial.println(3.1415926);
   //SoftSerial.print("Test for C++ Syntax: \"%d\"",1);
 
   
