@@ -3,6 +3,7 @@
 #include "Driving_Car_With_JAH.h"
 #include "SoftSerial.h"
 #include "buttons.h"
+#include "Motor_controll.h"
 
 bool driving = false;
 
@@ -16,7 +17,7 @@ int main(void)
       /* NOTHING */ 
     }while(!driving);
     while(driving){ 
-      //motorControl();
+      motorControl();
       SoftSerialTest();
     }
   }

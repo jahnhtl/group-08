@@ -5,6 +5,7 @@
 #define IN2 6
 #define IN3 5
 #define IN4 4
+
 /*
   IN3 und IN4 sind die linken Räder
   IN3 < IN4 Auto fährt vorwärts
@@ -15,36 +16,39 @@
   IN1 > IN2 Auto fährt rückwerts  
 */
 
+#include <Arduino.h>
+#include "SoftSerial.h"
+
 void motorSetup(){
-  Serial.begin(9600);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT); 
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
+
 }
 
-inline void motorControl(){
+void motorControl(){
   int distanceFront, distanceRight, distanceLeft;
   int diff;
   static int motorSpeed=200;
 
 
   distanceFront = analogRead(sensorFront);
-  Serial.print("vorne: ");
-  Serial.println(distanceFront);
+  SoftSerial.print("vorne: ");
+  SoftSerial.println(distanceFront);
   distanceRight = analogRead(sensorRight);
-  Serial.print("Rechts: ");
-  Serial.println(distanceRight);
+  SoftSerial.print("Rechts: ");
+  SoftSerial.println(distanceRight);
   distanceLeft = analogRead(sensorLeft);
-  Serial.print("Links: ");
-  Serial.println(distanceLeft);
+  SoftSerial.print("Links: ");
+  SoftSerial.println(distanceLeft);
 
   diff = distanceLeft - distanceRight;
   
   if(diff <= 50 && diff >= -50){ 
    
      if(distanceFront < 250){
-      Serial.println("Beschleunigen");
+      SoftSerial.println("Beschleunigen");
       while(motorSpeed<200){
         motorSpeed = motorSpeed+25;
         digitalWrite(IN4, motorSpeed);
@@ -55,7 +59,7 @@ inline void motorControl(){
     }
   
     if(distanceFront >= 250){
-      Serial.println("Bremsen");
+      SoftSerial.println("Bremsen");
       while(motorSpeed > 0){
          motorSpeed = motorSpeed-25 ;
         digitalWrite(IN4, motorSpeed);
@@ -67,7 +71,7 @@ inline void motorControl(){
   }
   
   else if(distanceRight < distanceLeft){  // kurve Rechts
-    Serial.println("Rechts kurve");
+    SoftSerial.println("Rechts kurve");
     //Linken Räder
     digitalWrite(IN4,100+(diff/4));
     digitalWrite(IN3, LOW);
@@ -77,7 +81,7 @@ inline void motorControl(){
     digitalWrite(IN1, LOW);
   }
   else if(distanceRight > distanceLeft){    // kurve Links
-    Serial.println("kurve Links");
+    SoftSerial.println("kurve Links");
     //Linken Räder
     digitalWrite(IN4,100-(diff/4));
     digitalWrite(IN3, LOW);

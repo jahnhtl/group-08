@@ -1,5 +1,5 @@
 //setting output pins
-void motorSetup();
+extern void motorSetup();
 
 //controlling the output value for the motors 
-inline void motorControl();
+extern void motorControl();

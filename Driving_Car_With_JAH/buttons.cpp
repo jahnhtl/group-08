@@ -5,12 +5,12 @@
 #define startButtonDDR DDRD
 #define startButtonPORT PORTD
 #define startButtonPINREG PIND
-#define startButtonPin 2
+#define startButtonPin 3
 
 #define stopButtonDDR DDRD
 #define stopButtonPORT PORTD
 #define stopButtonPINREG PIND
-#define stopButtonPin 3
+#define stopButtonPin 2
 
 extern bool driving;
 
