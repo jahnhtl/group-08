@@ -1,17 +1,24 @@
+#include <avr/io.h>
+
+#include "Driving_Car_With_JAH.h"
+#include "SoftSerial.h"
+#include "buttons.h"
+
 bool driving = false;
 
-void setup() {
-  // put your setup code here, to run once:
+int main(void)
+{
+  init();
   buttonSetup();
   serialSetup();
-}
-
-void loop() {
-  driving = true; //debug
-  // put your main code here, to run repeatedly:
-    do{ /* NOTHING */ }while(!driving);
-  while(driving){
-      motorControl();
-      softSerialTest();
+  while(1){
+    do{
+      /* NOTHING */ 
+    }while(!driving);
+    while(driving){ 
+      //motorControl();
+      SoftSerialTest();
+    }
   }
+  return 0;
 }

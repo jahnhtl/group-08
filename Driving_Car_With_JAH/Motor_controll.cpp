@@ -5,7 +5,6 @@
 #define IN2 6
 #define IN3 5
 #define IN4 4
-
 /*
   IN3 und IN4 sind die linken Räder
   IN3 < IN4 Auto fährt vorwärts
@@ -15,6 +14,7 @@
   IN1 < IN2 Auto fährt vorwärts
   IN1 > IN2 Auto fährt rückwerts  
 */
+
 void motorSetup(){
   Serial.begin(9600);
   pinMode(IN1, OUTPUT);
@@ -22,6 +22,7 @@ void motorSetup(){
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
 }
+
 inline void motorControl(){
   int distanceFront, distanceRight, distanceLeft;
   int diff;
@@ -85,7 +86,5 @@ inline void motorControl(){
     digitalWrite(IN2,100+(diff/4));
     digitalWrite(IN1, LOW);
   }
-  
-
     delay(1000);
 }
