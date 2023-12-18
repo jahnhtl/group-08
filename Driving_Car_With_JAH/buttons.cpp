@@ -1,3 +1,7 @@
+#include <WInterrupts.c>
+#include "buttons.h"
+#include "SoftSerial.h"
+
 #define startButtonDDR DDRD
 #define startButtonPORT PORTD
 #define startButtonPINREG PIND
@@ -8,9 +12,11 @@
 #define stopButtonPINREG PIND
 #define stopButtonPin 3
 
-inline void buttonSetup(){
+extern bool driving;
+
+void buttonSetup(){
   // define both Pins as inputs
-  interrupts(); // should not be necessary. For safety
+  //interrupts(); // should not be necessary. For safety
   
   startButtonDDR  &= ~(1 << startButtonPin);
   startButtonPORT |=  (1 << startButtonPin); // PULLUP
@@ -22,11 +28,11 @@ inline void buttonSetup(){
   attachInterrupt(digitalPinToInterrupt(startButtonPin), startButtonISR, FALLING);  
 }
 
-void stopButtonISR(){
+void stopButtonISR(){   // red button
   driving = false;
-  Serial.println("Pressed STOP Button");
+  SoftSerial.println("Pressed STOP Button");
 }
-void startButtonISR(){
+void startButtonISR(){  // black button
   driving = true;
-  Serial.println("Pressed START Button");
+  SoftSerial.println("Pressed START Button");
 }
