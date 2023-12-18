@@ -2,27 +2,27 @@
 #define sensorRight A0
 #define sensorLeft A4
 
-#define IN1 4
-#define IN2 5
-#define IN3 6
-#define IN4  7
+#define IN1 7
+#define IN2 6
+#define IN3 5
+#define IN4 4
 
 #define DDR_IN1 DDRD
 #define PORT_IN1 PORTD
 #define PINREG_IN1 PIND
-#define PIN_IN1 4
+#define PIN_IN1 7
 #define DDR_IN2 DDRD
 #define PORT_IN2 PORTD
 #define PINREG_IN2 PIND
-#define PIN_IN2 5
+#define PIN_IN2 6
 #define DDR_IN3 DDRD
 #define PORT_IN3 PORTD
 #define PINREG_IN3 PIND
-#define PIN_IN3 6
+#define PIN_IN3 5
 #define DDR_IN4 DDRD
 #define PORT_IN4 PORTD
 #define PINREG_IN4 PIND
-#define PIN_IN4 7
+#define PIN_IN4 4
 
 /*
   IN3 und IN4 sind die linken Räder
