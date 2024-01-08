@@ -73,10 +73,10 @@ void motorControl(){
       SoftSerial.println("Beschleunigen");
       while(motorSpeed<200){
         motorSpeed = motorSpeed+25;
-        analogWrite(IN4, motorSpeed);
-        PINREG_IN3 &= ~(1 << PIN_IN3);
-        analogWrite(IN2, motorSpeed);
-        PINREG_IN1 &= ~(1 << PIN_IN1);
+        analogWrite(IN3, motorSpeed);
+        PINREG_IN4 &= ~(1 << PIN_IN3);
+        analogWrite(IN1, motorSpeed);
+        PINREG_IN2 &= ~(1 << PIN_IN1);
       }
     delay(25);
     }
@@ -85,10 +85,10 @@ void motorControl(){
       SoftSerial.println("Bremsen");
       while(motorSpeed > 0){
          motorSpeed = motorSpeed-25 ;
-        analogWrite(IN4, motorSpeed);
-        PINREG_IN3 &= ~(1 << PIN_IN3);
-        analogWrite(IN2, motorSpeed);
-        PINREG_IN1 &= ~(1 << PIN_IN1);
+        analogWrite(IN3, motorSpeed);
+        PINREG_IN4 &= ~(1 << PIN_IN3);
+        analogWrite(IN3, motorSpeed);
+        PINREG_IN2 &= ~(1 << PIN_IN1);
       }
     }
     delay(25);
@@ -97,24 +97,25 @@ void motorControl(){
   else if(distanceRight < distanceLeft){  // kurve Rechts
     SoftSerial.println("Rechts kurve");
     //Linken Räder
-    analogWrite(IN4,100+(diff/4));
-    PINREG_IN3 &= ~(1 << PIN_IN3);
+    analogWrite(IN3,100+(diff/4));
+    PINREG_IN4 &= ~(1 << PIN_IN3);
 
     //Rechten Räder
-    analogWrite(IN2,100-(diff/4));
-    PINREG_IN1 &= ~(1 << PIN_IN1);
+    analogWrite(IN1,100-(diff/4));
+    PINREG_IN2 &= ~(1 << PIN_IN1);
     delay(25);
   }
   else if(distanceRight > distanceLeft){    // kurve Links
     SoftSerial.println("kurve Links");
     //Linken Räder
-    analogWrite(IN4,100-(diff/4));
-    PINREG_IN3 &= ~(1 << PIN_IN3);
+    analogWrite(IN3,100-(diff/4));
+    PINREG_IN4 &= ~(1 << PIN_IN3);
 
     //Rechten Räder
-    analogWrite(IN2,100+(diff/4));
-    PINREG_IN1 &= ~(1 << PIN_IN1);
+    analogWrite(IN1,100+(diff/4));
+    PINREG_IN2 &= ~(1 << PIN_IN1);
     delay(25);
   }
+  
     delay(1000);
 }
