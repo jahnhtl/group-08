@@ -13,10 +13,8 @@ int main(void)
   buttonSetup();
   serialSetup();
   while(true){
-    do{ /* NOTHING */ SoftSerial.println("Do Nothing"); delay(2000); }while(!driving);
-    SoftSerial.println("Test inbetween while loop");
+    do{ /* NOTHING */ SoftSerial.println("D: NOP-Loop"); delay(2000); }while(!driving);
     while(driving){ 
-      SoftSerial.println("Inside Driving = true\n\n\n\n\n\n\n");
       delay(25);
       motorControl();
       SoftSerialTest();
