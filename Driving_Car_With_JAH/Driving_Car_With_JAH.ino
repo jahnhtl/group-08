@@ -19,7 +19,6 @@ int main(void)
       motorControl();
       SoftSerialTest();
     }
-    
   }
   return 0;
 }
